@@ -9,11 +9,17 @@ const Dash = ({ value, key }) => (
     </View>
 )
 
+const CustomizeComponent = ({ value, key }) => (
+    <View key={key} style={{ paddingHorizontal: 16 }}>
+        { !!value ? <Text>{value}</Text> : <Text>_</Text>}
+    </View>
+);
+
 export default class PinCode extends React.Component {
 
     static defaultProps = {
         length: 4,
-        onFulFill: (value) => {}
+        onFulFill: () => {},
     };
 
     constructor(props) {
@@ -24,15 +30,35 @@ export default class PinCode extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.ref && this.props.ref(this);
+    }
+
+    clearCode() {
+        this.setState({ code: '' });
+    }
+
     renderCodeArray() {
         const { codeArr } = this.state;
         const code = this.state.code.split('');
+        if (this.props.cuztomize)
+            return this.renderCustomize();
+        
         return codeArr.map((item, index) => 
             Dash({ 
                 value: code[index] || item, 
                 key: index // key đây
             })
         );
+    }
+
+    renderCustomize() {
+        const { CustomizeComponent, DefaultCustomizeComponent } = this.props;
+        return codeArr.map((item, index) =>  {
+            if(code[index])
+                return <CustomizeComponent value={code[index]} key={index} />
+            return <DefaultCustomizeComponent />
+        });
     }
 
     render() {
