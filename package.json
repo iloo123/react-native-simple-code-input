@@ -1,6 +1,10 @@
 {
   "name": "react-native-simple-code-input",
-  "version": "1.0.6",
+  "version": "1.0.7",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/namnh240795/react-native-simple-code-input"
+},
   "description": "Simple code input component for react-native",
   "main": "index.js",
   "scripts": {
