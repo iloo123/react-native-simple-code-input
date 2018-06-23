@@ -1,15 +1,15 @@
 {
   "name": "react-native-simple-code-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple code input component for react-native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.3",
-    "react-native": "^0.55.4",
-    "prop-types": "^15.6.2"
+    "react-native": "^0.55.4"
   },
   "author": "Nam Nguyen",
   "license": "ISC",
