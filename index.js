@@ -50,11 +50,12 @@ export default class PinCode extends React.Component {
                     ref={ref => { this.input = ref; }}
                     maxLength={this.props.length}
                     onChangeText={value => {
-                        this.setState({ code: value })
-                        if (value.length === this.props.length) {
-                            Keyboard.dismiss();
-                            this.props.onFulFill(value);
-                        }
+                        this.setState({ code: value }, () => {
+                            if (value.length === this.props.length) {
+                                Keyboard.dismiss();
+                                this.props.onFulFill(this.state.code);
+                            }
+                        })
                     }}
                 />
             </TouchableOpacity>
