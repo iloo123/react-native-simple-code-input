@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Keyboard, LayoutAnimation } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Keyboard, LayoutAnimation, UIManager } from 'react-native';
 import PropTypes from 'prop-types';
 
 const boxStyle = {
