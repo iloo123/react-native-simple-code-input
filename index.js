@@ -21,10 +21,11 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 export default class PinCode extends React.Component {
 
     static defaultProps = {
+        keyboardType: 'default',
         type: 'easeInEaseOut',
         length: 4,
         onFulFill: () => {},
-        onChangeText: () => {}
+        onChangeText: () => {},
     };
 
     constructor(props) {
@@ -80,6 +81,9 @@ export default class PinCode extends React.Component {
                     {this.renderCodeArray()}
                 </View>
                 <TextInput
+                    autoCapitalize={false}
+                    autoCorrect={false}
+                    keyboardType={this.props.keyboardType}
                     style={{ height: 0 }}
                     ref={ref => { this.input = ref; }}
                     maxLength={this.props.length}
@@ -102,5 +106,6 @@ export default class PinCode extends React.Component {
 PinCode.propTypes = {
     length: PropTypes.number,
     onFulFill: PropTypes.func,
-    type: PropTypes.oneOf(['spring', 'linear', 'easeInEaseOut'])
+    type: PropTypes.oneOf(['spring', 'linear', 'easeInEaseOut']),
+    keyboardType: PropTypes.oneOf(['default', 'numeric', 'phone-pad', 'email-address']),
 };

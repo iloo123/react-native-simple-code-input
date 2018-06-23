@@ -26,9 +26,11 @@
         onFulFill={value => console.log('input value', value)}
         length={8}
         onChangeText={value => console.log('input value', value)}
+        keyboardType='numeric'
         cuztomize
         renderValueComponent={value => <Text red>{value}</Text>}
         renderEmptyComponent={value => <Text red>x</Text>}
     />  
 
     <Text onPress={() => this.pincode && this.pincode.clearCode()}>Clear</Text>  
+
