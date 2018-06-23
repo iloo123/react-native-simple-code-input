@@ -18,4 +18,13 @@
     this.pincode.clearCode();
 
 #Customize Code Component
-    Developing...
+    <PinCode
+        ref={ref => this.pincode = ref }
+        onFulFill={value => console.log('input value', value)}
+        length={8}
+        onChangeText={value => console.log('input value', value)}
+        cuztomize
+        renderValueComponent={value => <Text red>{value}</Text>}
+        renderEmptyComponent={value => <Text red>x</Text>}
+    />
+    <Text onPress={() => this.pincode && this.pincode.clearCode()}>Clear</Text>
