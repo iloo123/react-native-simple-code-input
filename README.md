@@ -10,6 +10,7 @@
     />
 
 **ClearCode**:  
+
     <PinCode
         ref={ref => this.pincode = ref}
         onFulFill={value => alert('value', value)}
@@ -19,6 +20,7 @@
     this.pincode.clearCode();
 
 **Customize Code Component**:  
+
     <PinCode
         ref={ref => this.pincode = ref }
         onFulFill={value => console.log('input value', value)}
