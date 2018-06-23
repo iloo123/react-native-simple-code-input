@@ -55,6 +55,7 @@ export default class PinCode extends React.Component {
 
     renderCustomize() {
         const { codeArr } = this.state;
+        const code = this.state.code.split('');
         const { renderEmptyComponent, renderValueComponent } = this.props;
         return codeArr.map((item, index) =>  {
             if(code[index])
