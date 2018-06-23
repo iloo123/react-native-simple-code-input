@@ -82,7 +82,9 @@ export default class PinCode extends React.Component {
                                 this.props.onFulFill(this.state.code);
                             }
                         })
+                        this.props.onChangeText(value);
                     }}
+                    value={this.state.value}
                 />
             </TouchableOpacity>
         );
