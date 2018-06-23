@@ -2,16 +2,26 @@ import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Keyboard, LayoutAnimation } from 'react-native';
 import PropTypes from 'prop-types';
 
+const boxStyle = {
+    borderWidth: 1, 
+    borderColor: '#e3e3e3',
+    height: 24,
+    width: 24,
+    marginHorizontal: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+};
 // functional components only render props
-const Dash = ({ value, key }) => (
-    <View key={key} style={{ paddingHorizontal: 16 }}>
-        { !!value ? <Text>{value}</Text> : <Text>_</Text>}
+const Box = ({ value, key }) => (
+    <View style={boxStyle}>
+        { !!value && <Text>{value}</Text>}
     </View>
 )
-
+UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 export default class PinCode extends React.Component {
 
     static defaultProps = {
+        type: 'easeInEaseOut',
         length: 4,
         onFulFill: () => {},
         onChangeText: () => {}
@@ -40,7 +50,7 @@ export default class PinCode extends React.Component {
             return this.renderCustomize();
         
         return codeArr.map((item, index) => 
-            Dash({ 
+            Box({ 
                 value: code[index] || item, 
                 key: index // key đây
             })
@@ -48,7 +58,7 @@ export default class PinCode extends React.Component {
     }
 
     renderCustomize() {
-        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+        LayoutAnimation.configureNext(LayoutAnimation.Presets[this.props.type]);
         const { codeArr } = this.state;
         const code = this.state.code.split('');
         const { renderEmptyComponent, renderValueComponent } = this.props;
@@ -66,7 +76,7 @@ export default class PinCode extends React.Component {
                     this.input && this.input.focus();
                 }}
             >
-                <View style={{ flexDirection: 'row' }}>  
+                <View style={{ flexDirection: 'row' }}>
                     {this.renderCodeArray()}
                 </View>
                 <TextInput
@@ -91,5 +101,6 @@ export default class PinCode extends React.Component {
 
 PinCode.propTypes = {
     length: PropTypes.number,
-    onFulFill: PropTypes.func
+    onFulFill: PropTypes.func,
+    type: PropTypes.oneOf(['spring', 'linear', 'easeInEaseOut'])
 };
