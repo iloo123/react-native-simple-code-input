@@ -5,14 +5,14 @@
 
     <PinCode
         onFulFill={value => alert('value', value)}
-        codeLength={8}
+        length={8}
     />
 
 #ClearCode
     <PinCode
         ref={ref => this.pincode = ref}
         onFulFill={value => alert('value', value)}
-        codeLength={8}
+        length={8}
     />
 
     this.pincode.clearCode();

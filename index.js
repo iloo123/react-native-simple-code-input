@@ -20,6 +20,7 @@ export default class PinCode extends React.Component {
     static defaultProps = {
         length: 4,
         onFulFill: () => {},
+        onChangeText: () => {}
     };
 
     constructor(props) {
@@ -53,11 +54,11 @@ export default class PinCode extends React.Component {
     }
 
     renderCustomize() {
-        const { CustomizeComponent, DefaultCustomizeComponent } = this.props;
+        const { renderEmptyComponent, renderValueComponent } = this.props;
         return codeArr.map((item, index) =>  {
             if(code[index])
-                return <CustomizeComponent value={code[index]} key={index} />
-            return <DefaultCustomizeComponent />
+                return renderValueComponent(code[index])
+            return renderEmptyComponent(item)
         });
     }
 
@@ -84,7 +85,7 @@ export default class PinCode extends React.Component {
                         })
                         this.props.onChangeText(value);
                     }}
-                    value={this.state.value}
+                    value={this.state.code}
                 />
             </TouchableOpacity>
         );
