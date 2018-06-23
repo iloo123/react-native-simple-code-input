@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Keyboard } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Keyboard, LayoutAnimation } from 'react-native';
 import PropTypes from 'prop-types';
 
 // functional components only render props
@@ -8,12 +8,6 @@ const Dash = ({ value, key }) => (
         { !!value ? <Text>{value}</Text> : <Text>_</Text>}
     </View>
 )
-
-const CustomizeComponent = ({ value, key }) => (
-    <View key={key} style={{ paddingHorizontal: 16 }}>
-        { !!value ? <Text>{value}</Text> : <Text>_</Text>}
-    </View>
-);
 
 export default class PinCode extends React.Component {
 
@@ -54,6 +48,7 @@ export default class PinCode extends React.Component {
     }
 
     renderCustomize() {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
         const { codeArr } = this.state;
         const code = this.state.code.split('');
         const { renderEmptyComponent, renderValueComponent } = this.props;
