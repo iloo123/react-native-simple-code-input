@@ -37,7 +37,7 @@ export default class PinCode extends React.Component {
     }
 
     componentDidMount() {
-        this.props.ref && this.props.ref(this);
+        this.props.hasRef && this.props.hasRef(this);
     }
 
     clearCode() {
