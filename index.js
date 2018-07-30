@@ -81,6 +81,7 @@ export default class PinCode extends React.Component {
                     {this.renderCodeArray()}
                 </View>
                 <TextInput
+                    underlineColorAndroid='rgba(0,0,0,0)'
                     autoCapitalize='none'
                     autoCorrect={false}
                     keyboardType={this.props.keyboardType}
