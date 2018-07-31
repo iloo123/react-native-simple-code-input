@@ -59,7 +59,7 @@ export default class PinCode extends React.Component {
     }
 
     renderCustomize() {
-        // LayoutAnimation.configureNext(LayoutAnimation.Presets[this.props.type]);
+        LayoutAnimation.configureNext(LayoutAnimation.Presets[this.props.type]);
         const { codeArr } = this.state;
         const code = this.state.code.split('');
         const { renderEmptyComponent, renderValueComponent } = this.props;
