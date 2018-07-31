@@ -59,7 +59,7 @@ export default class PinCode extends React.Component {
     }
 
     renderCustomize() {
-        LayoutAnimation.configureNext(LayoutAnimation.Presets[this.props.type]);
+        // LayoutAnimation.configureNext(LayoutAnimation.Presets[this.props.type]);
         const { codeArr } = this.state;
         const code = this.state.code.split('');
         const { renderEmptyComponent, renderValueComponent } = this.props;
@@ -84,6 +84,7 @@ export default class PinCode extends React.Component {
                     underlineColorAndroid='rgba(0,0,0,0)'
                     autoCapitalize='none'
                     autoCorrect={false}
+                    autoFocus={this.props.autoFocus}
                     keyboardType={this.props.keyboardType}
                     style={{ height: 0 }}
                     ref={ref => { this.input = ref; }}
