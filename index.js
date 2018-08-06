@@ -91,12 +91,12 @@ export default class PinCode extends React.Component {
                     maxLength={this.props.length}
                     onChangeText={value => {
                         this.setState({ code: value }, () => {
+                            this.props.onChangeText(value);
                             if (value.length === this.props.length) {
                                 Keyboard.dismiss();
                                 this.props.onFulFill(this.state.code);
                             }
                         })
-                        this.props.onChangeText(value);
                     }}
                     value={this.state.code}
                 />
