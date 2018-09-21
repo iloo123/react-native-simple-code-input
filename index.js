@@ -3,11 +3,11 @@ import { View, Text, TextInput, TouchableOpacity, Keyboard, LayoutAnimation, UIM
 import PropTypes from 'prop-types';
 
 const boxStyle = {
-    borderWidth: 1, 
-    borderColor: '#e3e3e3',
-    height: 24,
-    width: 24,
-    marginHorizontal: 4,
+    borderBottomWidth: 2, 
+    borderColor: 'rgba(102, 51, 255, 100)',
+    height: 32,
+    width: 32,
+    marginHorizontal: 7,
     alignItems: 'center',
     justifyContent: 'center',
 };
